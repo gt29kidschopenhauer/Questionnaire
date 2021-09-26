@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}Hi!{% endblock %}
+
+{% block body %}
+	<div class="jumbotron jumbotron-fluid" id="intro">
+  		<div class="container">
+    		<h1 class="display-4">Welcome to Covid Survey!</h1>
+    		<p class="lead">Having a hard time with COVID-19, lockdown, or anything? Or feeling easy?</p>
+    		<hr class="my-4">
+    		<p>Take part in our survey to share your feelings and help researchers across the world!</p>
+  			<p class="lead">
+    			<a class="btn btn-success btn-lg" href="{{ url_for('user.question') }}" role="button">Start now!</a>
+  			</p>
+  		</div>
+	</div>
+	<br><br><hr><br><br>
+	<h1 class="display-4" style="padding:4vw; padding-top:0;">Why should you do the survey?</h1>
+	<div class="container">
+  		<div class="row">
+    		<div class="col">
+      			<div class="card">
+      				<img class="card-img-top" src="https://www.momentumwellness.co.za/wp-content/uploads/2021/03/Article-3.png" alt="Share Feelings">
+      				<div class="card-body">
+      					<h5 class="card-title">Share your feelings</h5>
+      					<p class="card-text">"The value of emotions comes from sharing them, not just having them"</p>
+      					<p class="card-text">- Simon Sinek</p>
+      					<p class="card-text">Share your feelings with us. Whether you are enjoying or suffering, sharing feelings with others is always valuable.</p>
+      				</div>
+      			</div>
+    		</div>
+    		<div class="col">
+      			<div class="card">
+      				<img class="card-img-top" src="https://media.nature.com/w1248/magazine-assets/d41586-018-07101-w/d41586-018-07101-w_16216032.jpg" alt="Doing research">
+      				<div class="card-body">
+      					<h5 class="card-title">Help ongoing researchs</h5>
+      					<p class="card-text">Analysts, researchers and government officials will appreciate your help! Counter-measures, government programs, etc. All of those things will benefit a lot from data collected from this survey!</p>
+      				</div>
+      			</div>
+    		</div>
+    		<div class="col">
+      			<div class="card">
+      				<img class="card-img-top" src="https://cmccybersecurity.com/wp-content/uploads/2020/10/Cyber-Security-Importance-1080x675-1.jpeg" alt="Security">
+      				<div class="card-body">
+      					<h5 class="card-title">Secured and safe</h5>
+      					<p class="card-text">All data collected on this survey is anonymous. No name, gender, age, income, or personal-related questions. Data collected shall be passed on directly to reliable third party.</p>
+      				</div>
+      			</div>
+    		</div>
+  		</div>
+  		<br><br><hr><br><br>
+  		<h1>Come on! <span style="color: rgb(173, 240, 56);">{{ num_user }}</span> people have taken up the survey already!</h1>
+  		<a class="btn btn-success" role="button" href="{{ url_for('user.question') }}" style="margin-bottom: 100px; margin-top: 50px; font-size: 40px; padding: 25px;">Take survey now!</a>
+	</div>
+{% endblock %}

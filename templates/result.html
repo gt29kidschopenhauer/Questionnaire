@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+	{{ super() }}
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script>
+		google.charts.load('current', {packages:['corechart']});
+		google.charts.setOnLoadCallback(function() {
+			var data = google.visualization.arrayToDataTable([
+				['Options', 'People'],
+				{% for bounded_result in query %}
+					{% if bounded_result|length == 3 %}
+						{% set bound_down, bound_up, num = bounded_result %}
+						['{{ bound_down }} -> {{ bound_up }}', {{ num }}],
+					{% else %}
+						{% set bound_down, num = bounded_result %}
+						['Larger than or equal to {{ bound_down }}', {{ num }}]
+					{% endif %}
+				{% endfor %}			
+			]);
+			var options =
+			{
+				title: 'Result:',
+				is3D: true,
+				backgroundColor: 'transparent',
+				chartArea:{left: 100, top: 50, width: '70%', height: '70%'}
+			};
+			var chart = new google.visualization.PieChart(document.getElementById('chart'));
+			chart.draw(data, options);
+		})
+	</script>
+{% endblock %}
+
+{% block body %}
+	<div id="chart"></div>
+{% endblock %}

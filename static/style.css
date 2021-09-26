@@ -1,0 +1,51 @@
+#question {
+	padding-left: 2vw;
+	background-color: rgb(210, 255, 196);
+	padding-top: 3vw;
+	text-align: center;
+	padding-bottom: 3vw;
+}
+
+#answer_button {
+	margin-bottom: 0.3em;
+	text-align: center;
+	width: 93vw;
+}
+
+.answers {
+	height: 3em;
+	width: 85vw;
+	border: solid black;
+	text-align: center;
+}
+body {
+	background-color: whitesmoke;
+}
+
+.chosen {
+	background-color: rgb(38, 255, 174);
+}
+
+.near_footer {
+	margin-bottom: 3vw;
+}
+
+.near_navbar {
+	margin-top: 3vw;
+}
+
+#intro {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.jumbotron {
+	background-color: grey;
+	color: whitesmoke;
+}
+
+.card {
+	height: 450px;
+}
+
+ 

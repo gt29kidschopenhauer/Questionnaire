@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}Add{% endblock %}
+
+{% block body %}
+	<div class="container-lg" style="margin: 50px;">
+		<h2 style="text-align: center;">Add question</h2>
+		<form action="{{ url_for('admin.admin_loggedin.add') }}" method="POST">
+			<div class="mb-3">
+  				<label for="name" class="form-label">Name</label>
+  				<input type="text" class="form-control" id="name" name="name">
+			</div>
+			<div class="mb-3">
+  				<label for="option1" class="form-label">Option 1</label>
+				<input type="text" class="form-control" id="option1" name="op_1">
+				<input type="number" class="form-control" name="point_1" placeholder="Point">
+			</div>
+			<div class="mb-3">
+  				<label for="option2" class="form-label">Option 2</label>
+  				<input type="text" class="form-control" id="option2" name="op_2">
+				<input type="number" class="form-control" name="point_2" placeholder="Point">
+			</div>
+			<div class="mb-3">
+  				<label for="option3" class="form-label">Option 3</label>		
+  				<input type="text" class="form-control" id="option3" name="op_3">
+				<input type="number" class="form-control" name="point_3" placeholder="Point">
+			</div>
+			<div class="mb-3">
+  				<label for="option4" class="form-label">Option 4</label>
+  				<input type="text" class="form-control" id="option4" name="op_4">
+				<input type="number" class="form-control" name="point_4" placeholder="Point">
+			</div>
+			<button type="submit" class="btn btn-success">Add</button>
+		</form>
+	</div>
+{% endblock %}

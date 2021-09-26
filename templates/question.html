@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+	{{ super() }}
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			$("input[name='options']").click(function() {
+  				$("label").removeClass("chosen");
+  				if ($(this).is(":checked")) {
+  					$(this).parent().addClass("chosen"); 
+  				}
+			});
+		})
+
+	</script>
+{% endblock %}
+
+{% block title %}Question{% endblock %}
+
+{% block body %}
+	<div class="p-5 text-center near_navbar">
+    	<h1 class="mb-3">Question {{ query[0] }}</h1>
+    	<h4>{{ query[1] }}</h4>
+ 	</div>
+	<form action="{{ url_for('user.question') }}" method="POST" id="question" class="near_footer">
+		<fieldset class="row mb-3">
+    		<div class="col-sm-10">
+      			<div class="form-check">
+        			<label class="form-check-label" for="option1">
+        				<input class="form-check-input" type="radio" name="options" id="option1" value="{{ query[2] }}">
+        				<div class="answers">{{ query[2] }}</div>
+        			</label>
+      			</div>
+      			<div class="form-check">
+        			<label class="form-check-label" for="option2">
+	        			<input class="form-check-input" type="radio" name="options" id="option2" value="{{ query[3] }}">
+          				<div class="answers">{{ query[3] }}</div>
+        			</label>
+      			</div>
+      			<div class="form-check">
+        			<label class="form-check-label" for="option3">
+	        			<input class="form-check-input" type="radio" name="options" id="option3" value="{{ query[4] }}">
+          				<div class="answers">{{ query[4] }}</div>
+        			</label>
+      			</div>
+      			<div class="form-check">
+        			<label class="form-check-label" for="option4">
+	        			<input class="form-check-input" type="radio" name="options" id="option4" value="{{ query[5] }}">
+          				<div class="answers">{{ query[5] }}</div>
+        			</label>
+      			</div>
+    		</div>
+  		</fieldset>
+  		<div id="answer_button"><button type="submit" class="btn btn-success">Answer</button></div>
+	</form>
+{% endblock %}

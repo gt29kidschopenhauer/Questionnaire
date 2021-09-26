@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+
+{% block head %}
+	{{ super() }}
+	<script>
+		function add_boundary(id)
+		{
+			var current_index = id.charAt(id.length - 1);
+			$('#new').innerHTML =
+			`
+				<div></div> -> <input type="number" onchange="modify_next(this.nextSibling)" id="boundary_${current_index + 1}">
+				<div id="new"></div>
+			`;
+		}
+
+		function modify_next(sibling)
+		{
+			var current_boundary = sibling.previousSibling.value + 1;
+			if (sibling.id == "new")
+			{
+				$('#max').innerHTML = current_boundary.toString();
+			}
+			else
+			{
+				sibling.innerHTML = current_boundary.toString();
+			}
+		}
+	</script>
+{% endblock %}
+
+{% block title %}Reset Boundaries{% endblock %}
+
+{% block body %}
+	<form action="{{ url_for('admin.admin_loggedin.reset') }}" method="POST">
+		0 -> <input type="number" onchange="modify_next(this.nextElementSibling)" id="boundary_1">
+		<div id="new"></div>
+		> <div id="max"></div>
+	</form>
+	<button onclick="add_boundary($('#new').previousElementSibling.id)" class="btn btn-success">+</button>
+{% endblock %}
